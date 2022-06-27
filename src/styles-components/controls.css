@@ -1,0 +1,41 @@
+*{
+    text-align: center;
+    font-weight: bold;
+}
+.controls-display{
+    display: flex;
+    flex-direction: column;
+}
+.control{
+    background-color: black;
+    width: 55px;
+    height: 28px;
+    padding: 0 3px 0 3px;
+    display: flex;
+    align-items: center;
+}
+.cube{
+    width: 20px;
+    height: 20px;
+    background-color: blue;
+}
+.name-button{
+    background-color: grey;
+    width: 190px;
+    height: 50px;
+}
+input{
+    background-color: rgb(70, 70, 70);
+    width: 220px;
+    height: 5px;
+    border: 1px solid black;
+    box-shadow: 4px 3px 8px black;;
+}
+[type=range] {
+    -webkit-appearance: none;
+    cursor: default;
+    margin: 12.5px 0;
+}
+div{
+    margin: 10px 0 10px 0;
+}

@@ -1,0 +1,14 @@
+button{
+    width: 95px;
+    height: 85px;
+    background-color: rgb(126, 126, 126);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 4px 3px 8px black;
+}
+.buttons{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
