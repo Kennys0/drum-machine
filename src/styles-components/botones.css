@@ -6,9 +6,18 @@ button{
     border-radius: 5px;
     cursor: pointer;
     box-shadow: 4px 3px 8px black;
+    color: black;
+    text-align: center;
+    font-size: 20px;
 }
 .buttons{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
+}
+
+button:active {
+    background-color: orange;
+    box-shadow: none;
+    transform: translateY(4px);
 }
