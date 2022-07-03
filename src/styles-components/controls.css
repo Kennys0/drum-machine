@@ -13,6 +13,7 @@
     padding: 0 3px 0 3px;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 .cube{
     width: 20px;
