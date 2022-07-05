@@ -117,77 +117,98 @@ const bankTwo = [
 
     
 
-function Boton({ keyName, power, bank }){
+function Boton({ name, power, bank, click, volumen }){
+
+  let i = '';
 
     function Sonido(){
         let audio = new Audio;
         if(power && !bank){
-          switch(keyName){
+          switch(name){
             case bankOne[0].keyTrigger:
           audio.src = bankOne[0].url;
+          i = bankOne[0];
             break;
             case bankOne[1].keyTrigger:
           audio.src = bankOne[1].url;
+          i = bankOne[1];
             break;
             case bankOne[2].keyTrigger:
           audio.src = bankOne[2].url;
+          i = bankOne[2];
             break;            
             case bankOne[3].keyTrigger:
           audio.src = bankOne[3].url;
+          i = bankOne[3];
             break;
             case bankOne[4].keyTrigger:
           audio.src = bankOne[4].url;
+          i = bankOne[4];
             break;
             case bankOne[5].keyTrigger:
           audio.src = bankOne[5].url;
+          i = bankOne[5];
             break;
             case bankOne[6].keyTrigger:
           audio.src = bankOne[6].url;
-              break;
+          i = bankOne[6];
+            break;
             case bankOne[7].keyTrigger:
           audio.src = bankOne[7].url;
+          i = bankOne[7];
             break;
             case bankOne[8].keyTrigger:
           audio.src = bankOne[8].url;
+          i = bankOne[8];
             break;
           }
       }
       if(power && bank){
-        switch(keyName){
-          case bankOne[0].keyTrigger:
+        switch(name){
+          case bankTwo[0].keyTrigger:
         audio.src = bankTwo[0].url;
+        i = bankTwo[0];
           break;
-          case bankOne[1].keyTrigger:
+          case bankTwo[1].keyTrigger:
         audio.src = bankTwo[1].url;
+        i = bankTwo[1];
           break;
-          case bankOne[2].keyTrigger:
+          case bankTwo[2].keyTrigger:
         audio.src = bankTwo[2].url;
+        i = bankTwo[2];
           break;            
-          case bankOne[3].keyTrigger:
+          case bankTwo[3].keyTrigger:
         audio.src = bankTwo[3].url;
+        i = bankTwo[3];
           break;
-          case bankOne[4].keyTrigger:
+          case bankTwo[4].keyTrigger:
         audio.src = bankTwo[4].url;
+        i = bankTwo[4];
           break;
-          case bankOne[5].keyTrigger:
+          case bankTwo[5].keyTrigger:
         audio.src = bankTwo[5].url;
+        i = bankTwo[5];
           break;
-          case bankOne[6].keyTrigger:
+          case bankTwo[6].keyTrigger:
         audio.src = bankTwo[6].url;
-            break;
-          case bankOne[7].keyTrigger:
-        audio.src = bankTwo[7].url;
+        i = bankTwo[6];
           break;
-          case bankOne[8].keyTrigger:
+          case bankTwo[7].keyTrigger:
+        audio.src = bankTwo[7].url;
+        i = bankTwo[7];
+          break;
+          case bankTwo[8].keyTrigger:
         audio.src = bankTwo[8].url;
+        i = bankTwo[8];
           break;
         }
       }
+      audio.volume = volumen;
         audio.play();
       }
 
     return(
-        <button onClick={Sonido}>{keyName}</button>
+        <span onClick={() => click(i)}><button onClick={Sonido}>{name}</button></span>
     )
 }
 
