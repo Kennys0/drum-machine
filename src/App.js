@@ -3,6 +3,7 @@ import './styles-components/controls.css'
 import './styles-components/botones.css'
 import Boton from './component/Boton';
 import { useState } from 'react';
+import { click } from '@testing-library/user-event/dist/click';
 
 const bankOne = [
   {
@@ -157,18 +158,46 @@ function App() {
   /* key */
   const [name, setName] = useState('');
 
+  const click = (boton) => {setName(boton.id)}
+
+  const idBank = () => {
+    if(bank){
+      setName("Heater Kit")
+      setTimeout(() => {
+        setName("")
+      }, 1500);
+    } else{
+      setName("Smooth Piano Kit")
+      setTimeout(() => {
+        setName("")
+      }, 1500);
+    }
+  };
+
+  /* Volumen */
+  const [volumen, setVolumen] = useState(0.2);
+
+  const adjustVolume = (e) => {
+    setVolumen(e.target.value);
+    setName("Volumen: " + Math.round(e.target.value * 100));
+  };
+
+
   return (
-    <div className="drum-machine">
-      <div className='buttons'>
-        <Boton name={[name, setName]} keyName={bankOne[0].keyTrigger} power={power} bank={bank} />
-        <Boton keyName={bankOne[1].keyTrigger} power={power} bank={bank} />
-        <Boton keyName={bankOne[2].keyTrigger} power={power} bank={bank} />
-        <Boton keyName={bankOne[3].keyTrigger} power={power} bank={bank} />
-        <Boton keyName={bankOne[4].keyTrigger} power={power} bank={bank} />
-        <Boton keyName={bankOne[5].keyTrigger} power={power} bank={bank} />
-        <Boton keyName={bankOne[6].keyTrigger} power={power} bank={bank} />
-        <Boton keyName={bankOne[7].keyTrigger} power={power} bank={bank} />
-        <Boton keyName={bankOne[8].keyTrigger} power={power} bank={bank} />
+    <div  className="drum-machine">
+      <div  className='buttons'>
+      {
+          bankOne.map((boton) => 
+          <Boton 
+          name={boton.keyTrigger}
+          key={boton.id}
+          click={click}
+          power={power} 
+          bank={bank}
+          volumen={volumen}
+          />
+          )
+        }
       </div>
       <div className='display'>
       <div className="controls-display">
@@ -186,10 +215,10 @@ function App() {
             <input
               max='1'
               min='0'
-              /*onChange={this.adjustVolume}*/
+              onChange={adjustVolume}
               step='0.01'
               type='range'
-              /*value={this.state.sliderVal}*/
+              value={volumen}
             />
             </div>
             <div className="controls-display">
@@ -197,7 +226,7 @@ function App() {
                 <div className="control" 
                 style={bank ? controlActive : controlInactive} 
                 onClick={cambioBank} >
-                    <div className="cube"></div>
+                    <div className="cube" onClick={idBank}></div>
                 </div>
             </div>
       </div>
