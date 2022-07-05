@@ -179,7 +179,12 @@ function App() {
 
   const adjustVolume = (e) => {
     setVolumen(e.target.value);
-    setName("Volumen: " + Math.round(e.target.value * 100));
+    if(power){
+      setName("Volumen: " + Math.round(e.target.value * 100));
+      setTimeout(() => {
+        setName("")
+      }, 1500);
+    }
   };
 
 
