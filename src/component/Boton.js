@@ -1,5 +1,5 @@
 import React from "react";
-import '../styles-components/botones.css'
+import '../styles-components/botones.css';
 
 const bankOne = [
   {
@@ -117,13 +117,13 @@ const bankTwo = [
 
     
 
-function Boton({ name, power, bank, click, volumen }){
+function Boton({ name, power, bank, click, volumen, id }){
 
   let i = '';
 
     function Sonido(){
-        let audio = new Audio;
-        if(power && !bank){
+      let audio = new Audio;
+      if(power && !bank){
           switch(name){
             case bankOne[0].keyTrigger:
           audio.src = bankOne[0].url;
@@ -204,12 +204,12 @@ function Boton({ name, power, bank, click, volumen }){
         }
       }
       audio.volume = volumen;
-        audio.play();
+      audio.play();
       }
 
     return(
-        <span onClick={() => click(i)}><button onClick={Sonido}>{name}</button></span>
-    )
+        <span onClick={() => click(i)} ><button id={id} onClick={Sonido}>{name}</button></span>
+        )
 }
 
 export default Boton

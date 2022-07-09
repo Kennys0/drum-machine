@@ -16,8 +16,14 @@ button{
     grid-template-rows: 1fr 1fr 1fr;
 }
 
-button:active {
+button:active, .button-active {
     background-color: orange;
     box-shadow: none;
     transform: translateY(4px);
 }
+
+.button-inactive{
+    background-color: rgb(126, 126, 126);
+    box-shadow: 4px 3px 8px black;
+}
+
